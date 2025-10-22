@@ -3,10 +3,29 @@
 	This problem requires you to implement a sorting algorithm
 	you can use bubble sorting, insertion sorting, heap sorting, etc.
 */
-// I AM NOT DONE
+// I AM NOT DON
 
-fn sort<T>(array: &mut [T]){
+fn sort<T>(array: &mut [T])
+where
+    T: std::cmp::PartialOrd
+{
 	//TODO
+    let size = array.len();
+
+    for i in 0..(size - 1) {
+        let mut swapped = false;
+
+        for j in 1..(size - i) {
+            if array[j - 1] > array[j] {
+                array.swap(j-1,j);
+                swapped = true;
+            }
+        }
+
+        if swapped == false {
+            break;
+        }
+    }
 }
 #[cfg(test)]
 mod tests {
